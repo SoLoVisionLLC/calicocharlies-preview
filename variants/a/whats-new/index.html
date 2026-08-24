@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>What's New | Calico Charlie's Candy &amp; More</title>
+<meta name="description" content="Vintage and retro candy, handcrafted treats, premium popcorn, and local gifts in downtown Fostoria, Ohio.">
+<link rel="icon" type="image/jpeg" href="/assets/fb-profile-avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600%3B9..144,700|Source+Sans+3:wght@400%3B600&amp;display=swap" rel="stylesheet">
+<style>/* Main Street Classic: warm cream, cherry, cocoa, mint/gold */
+:root{
+  --cream:#faf4e8; --paper:#fffdf7; --cherry:#b3282d; --cherry-dark:#8f1f24;
+  --cocoa:#3a2a20; --mint:#7fa88f; --gold:#c9a227; --ink:#2b211a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Source Sans 3",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:17px}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,.brand-name,blockquote{font-family:Fraunces,Georgia,serif;color:var(--cocoa)}
+.skip{position:absolute;left:-999px;top:0;background:var(--cherry);color:#fff;padding:.6rem 1rem;z-index:99}
+.skip:focus{left:.5rem;top:.5rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hdr{background:var(--paper);border-bottom:3px solid var(--cherry)}
+.hdr-in{max-width:1080px;margin:0 auto;padding:.9rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:700;font-size:1.25rem}
+.brand-mark{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--cherry);color:#fff;font-family:Fraunces,serif;font-size:1rem}
+.brand-name{color:var(--cocoa)}
+.links{display:flex;gap:1.1rem;flex-wrap:wrap}
+.links a{color:var(--cocoa);text-decoration:none;font-weight:600;padding:.55rem .2rem;min-height:44px;display:inline-flex;align-items:center}
+.links a:hover,.links a[aria-current]{color:var(--cherry);border-bottom:3px solid var(--cherry)}
+.menu-toggle{position:absolute;opacity:0}
+.menu-btn{display:none}
+main{max-width:1080px;margin:0 auto;padding:0 1.2rem}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.7rem 1.5rem;border-radius:6px;text-decoration:none;font-weight:700;margin:.3rem .5rem .3rem 0}
+.cta-primary{background:var(--cherry);color:#fff;border:2px solid var(--cherry)}
+.cta-primary:hover{background:var(--cherry-dark)}
+.cta-secondary{background:transparent;color:var(--cherry);border:2px solid var(--cherry)}
+.cta-secondary:hover{background:var(--cherry);color:#fff}
+.cta-ghost{background:transparent;color:var(--cocoa);border:2px solid var(--cocoa)}
+.hero.split{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;align-items:center;padding:3rem 0 2.5rem;border-bottom:1px solid #e5dcc8}
+.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;color:var(--gold);font-weight:700;margin-bottom:.7rem}
+.hero h1{font-size:clamp(2rem,4.5vw,3rem);line-height:1.12;margin-bottom:1rem}
+.lede{font-size:1.15rem;margin-bottom:1.4rem;color:#57453a}
+.r43 img{aspect-ratio:4/3;object-fit:cover;width:100%;border-radius:8px;box-shadow:0 10px 24px rgba(58,42,32,.18);border:1px solid #e5dcc8}
+section{padding:2.4rem 0}
+.cats.rail{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cats li{background:var(--paper);border:1px solid #e5dcc8;border-top:4px solid var(--mint);border-radius:8px;padding:1.4rem 1.1rem;text-align:center}
+.cats li:nth-child(2){border-top-color:var(--cherry)}
+.cats li:nth-child(3){border-top-color:var(--gold)}
+.cats li:nth-child(4){border-top-color:var(--cocoa)}
+.history-panel{display:grid;grid-template-columns:5fr 7fr;gap:2rem;align-items:center;background:var(--paper);border:1px solid #e5dcc8;border-radius:10px;padding:2rem}
+.history-panel img{border-radius:8px}
+.quote-band blockquote{font-size:clamp(1.3rem,2.6vw,1.7rem);text-align:center;max-width:46rem;margin:0 auto;line-height:1.45}
+cite{display:block;margin-top:.8rem;font-style:normal;font-size:.95rem;color:var(--mint);font-family:"Source Sans 3",sans-serif;font-weight:600}
+.visit-strip{background:var(--cocoa);color:var(--cream);text-align:center;border-radius:10px;padding:2.2rem}
+.visit-strip h2{color:var(--cream);margin-bottom:.6rem}
+.textlink{color:var(--cherry);font-weight:700;text-decoration:none;border-bottom:2px solid var(--gold)}
+.page-head{padding:2.6rem 0 .4rem}
+.page-head h1{font-size:clamp(2rem,4vw,2.8rem)}
+.page-head p{margin-top:.5rem;font-size:1.12rem;color:#57453a}
+.story-figure{margin:1.8rem 0}
+.story-figure img{width:100%;border-radius:10px;box-shadow:0 10px 24px rgba(58,42,32,.16)}
+figcaption{font-size:.85rem;color:#7a685c;margin-top:.5rem}
+.big-quote{font-size:clamp(1.4rem,3vw,1.9rem);max-width:44rem;margin:2rem auto;text-align:center;line-height:1.4}
+.prose{max-width:44rem;margin:0 auto}
+.prose h2{margin:1.8rem 0 .6rem;font-size:1.45rem}
+.prose p{margin-bottom:1rem}
+.note{font-size:.92rem;color:#7a685c;font-style:italic}
+.modules{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.module{background:var(--paper);border:1px solid #e5dcc8;border-radius:10px;padding:1.6rem}
+.module h2{font-size:1.35rem;margin-bottom:.5rem}
+.local-band{background:var(--paper);border-left:5px solid var(--gold);padding:1.8rem;margin:1.6rem 0;border-radius:0 10px 10px 0}
+.local-band blockquote{margin-top:1rem;font-size:1.15rem}
+.close-cta{text-align:center;padding-bottom:3rem}
+.follow-panel{background:var(--paper);border:1px solid #e5dcc8;border-radius:10px;padding:2rem;max-width:38rem}
+.follow-panel h2{margin-bottom:.6rem}
+.visit-card{background:var(--paper);border:1px solid #e5dcc8;border-radius:10px;padding:2rem;max-width:34rem}
+.map-embed iframe{width:100%;height:380px;border:1px solid #e5dcc8;border-radius:10px}
+.footer{background:var(--cocoa);color:var(--cream);margin-top:3rem}
+.foot-inner{max-width:1080px;margin:0 auto;padding:2.4rem 1.2rem;display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
+.foot-name{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:.5rem}
+.foot-mark{width:34px;height:34px;border-radius:50%}
+.footer a{color:var(--gold);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.footer nav a{display:block;padding:.4rem 0}
+@media(max-width:860px){
+  .hero.split,.history-panel,.roots-spread{grid-template-columns:1fr}
+  .hero.split .hero-copy{order:0}.hero.split .hero-media{order:1}
+  .cats.rail{grid-template-columns:repeat(2,1fr)}
+  .modules{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr}
+  /* compact name row + drawer */
+  .menu-btn{display:inline-flex;align-items:center;gap:.5rem;background:none;border:2px solid var(--cocoa);border-radius:6px;min-height:48px;min-width:48px;padding:.4rem .9rem;font-weight:700;color:var(--cocoa);cursor:pointer}
+  .menu-btn-bar{width:18px;height:2px;background:var(--cocoa);box-shadow:0 6px 0 var(--cocoa),0 -6px 0 var(--cocoa)}
+  .menu-toggle~.links{display:none;width:100%;flex-direction:column}
+  .menu-toggle:checked~.links{display:flex}
+  .hdr-in{flex-wrap:wrap}
+  section{padding:1.8rem 0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr"><div class="hdr-in">
+<a class="brand" href="/"><span class="brand-mark">CC</span><span class="brand-name">Calico Charlie&rsquo;s</span></a>
+<input type="checkbox" id="mwhats-new" class="menu-toggle" aria-label="Menu">
+<label class="menu-btn" for="mwhats-new"><span class="menu-btn-bar"></span>Menu</label>
+<nav class="links" aria-label="Primary"><a href="/">Home</a><a href="/treats-gifts">Treats &amp; Gifts</a><a href="/our-story">Our Story</a><a href="/whats-new" aria-current="page">What&rsquo;s New</a><a href="/visit">Visit</a></nav>
+</div></header>
+<main id="main">
+<section class="page-head">
+<h1>What&rsquo;s New</h1>
+<p>The fastest way to hear about fresh treats and seasonal displays is straight from the shop.</p>
+</section>
+<section class="follow-panel">
+<h2>Follow along</h2>
+<p>New goodies, seasonal displays, and shop moments show up first on our social pages:</p>
+<p><a class="cta cta-primary" href="https://www.facebook.com/CalicoCharlie" rel="noopener">Follow on Facebook</a>
+   <a class="cta cta-secondary" href="https://www.instagram.com/calicocharlie/" rel="noopener">Follow on Instagram</a></p>
+<p class="note">Or call <a href="tel:+14197011585">(419) 701-1585</a> and ask what&rsquo;s new this week.</p>
+</section>
+
+<section class="visit-strip" aria-labelledby="vs-h">
+  <h2 id="vs-h">Plan Your Visit</h2>
+  <p>206 S. Main St., Fostoria, OH 44830</p>
+  <p><a class="cta cta-secondary" href="tel:+14197011585">Call the Shop</a>
+     <a class="cta cta-ghost" href="https://www.google.com/maps/dir/?api=1&destination=206+S.+Main+St.%2C+Fostoria%2C+OH+44830" rel="noopener">Get Directions</a></p>
+</section>
+</main>
+<footer class="footer">
+  <div class="foot-inner">
+    <div>
+      <p class="foot-name"><img src="/assets/fb-profile-avatar.jpg" alt="Calico Charlie's profile mark" class="foot-mark"> Calico Charlie&rsquo;s Candy &amp; More</p>
+      <p>206 S. Main St., Fostoria, OH 44830</p>
+      <p><a href="tel:+14197011585">(419) 701-1585</a></p>
+      <p>Call or message us for today&rsquo;s hours.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/">Home</a><a href="/treats-gifts">Treats &amp; Gifts</a><a href="/our-story">Our Story</a><a href="/whats-new">What&rsquo;s New</a><a href="/visit">Visit</a>
+    </nav>
+    <div>
+      <p><a href="https://www.facebook.com/CalicoCharlie" rel="noopener">Follow on Facebook</a></p>
+      <p><a href="https://www.instagram.com/calicocharlie/" rel="noopener">Follow on Instagram</a></p>
+      <p><a href="https://www.google.com/maps/dir/?api=1&destination=206+S.+Main+St.%2C+Fostoria%2C+OH+44830" rel="noopener">Get Directions</a></p>
+    </div>
+  </div>
+</footer>
+<script>/* static site */</script>
+</body>
+</html>
