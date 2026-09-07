@@ -7,7 +7,7 @@ from pathlib import Path
 from preview_dock import ASSET_VERSION, VARIANT_DOMAINS, preview_dock, route_path
 
 ROOT = Path(__file__).resolve().parent
-ROUTES = ("/", "/treats-gifts/", "/our-story/", "/whats-new/", "/visit/")
+ROUTES = ("/", "/treats-gifts/", "/our-story/", "/whats-new/", "/visit/", "/contact/")
 EXPECTED_VERSION = "20260907-dock-v8-typography"
 EXPECTED_LABELS = (
     "A (Main Street Classic)",
@@ -69,6 +69,10 @@ def assert_committed_artifacts():
             assert preview_dock(variant, route) in html, (variant, route)
             assert 'name="robots" content="noindex, nofollow"' in html
             assert f'styles.css?v={EXPECTED_VERSION}' in html, (variant, route)
+            if route == "/contact/":
+                assert "Contact Calico Charlie" in html
+                assert 'href="tel:' in html
+                assert "Call (419) 701-1585" in html
 
 
 if __name__ == "__main__":
@@ -76,4 +80,4 @@ if __name__ == "__main__":
     assert_dock_links()
     assert_dock_typography()
     assert_committed_artifacts()
-    print("verified v8 dock typography in 3 variants, exact chip labels, canonical routes, and 15 committed artifacts")
+    print("verified v8 dock typography in 3 variants, exact chip labels, canonical routes, and 18 committed artifacts")
