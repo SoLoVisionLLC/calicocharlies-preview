@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Calico Charlie's Candy & More preview: variants A/B/C, static HTML, 5 routes each."""
+"""Build Calico Charlie's Candy & More preview: variants A/B/C, static HTML, 6 routes each."""
 import os, shutil
 from preview_dock import ASSET_VERSION, preview_dock
 
@@ -12,6 +12,7 @@ ROUTES = {
     '/our-story': 'our-story/index.html',
     '/whats-new': 'whats-new/index.html',
     '/visit': 'visit/index.html',
+    '/contact': 'contact/index.html',
 }
 
 NAV_LINKS = [
@@ -20,6 +21,7 @@ NAV_LINKS = [
     ('/our-story', 'Our Story'),
     ('/whats-new', "What&rsquo;s New"),
     ('/visit', 'Visit'),
+    ('/contact', 'Contact'),
 ]
 
 ADDRESS = '206 S. Main St., Fostoria, OH 44830'
@@ -213,6 +215,22 @@ def visit_body():
 </section>"""
 
 
+def contact_body():
+    return f"""
+<section class="page-head">
+<h1>Contact Calico Charlie&rsquo;s</h1>
+<p>Questions about today&rsquo;s hours, a special order, or what&rsquo;s new in the shop? Call or message us and we&rsquo;ll be happy to help.</p>
+</section>
+<section class="contact-card">
+<h2>Let&rsquo;s talk treats</h2>
+<p><a class="cta cta-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
+   <a class="cta cta-secondary" href="{FB}" rel="noopener">Message on Facebook</a></p>
+<p>{ADDRESS}</p>
+<p>For current hours and seasonal updates, check our social pages or give us a call.</p>
+<p><a href="{IG}" rel="noopener">Follow on Instagram</a> &middot; <a href="{MAPS_DIR}" rel="noopener">Get Directions</a></p>
+</section>"""
+
+
 HOME_A = f"""
 <section class="hero split">
 <div class="hero-copy">
@@ -341,10 +359,11 @@ def build():
             '/our-story': story_body(),
             '/whats-new': whatsnew_body(),
             '/visit': visit_body(),
+            '/contact': contact_body(),
         }
         titles = {'/': '', '/treats-gifts': 'Treats & Gifts',
                   '/our-story': 'Our Story', '/whats-new': "What's New",
-                  '/visit': 'Visit'}
+                  '/visit': 'Visit', '/contact': 'Contact'}
         for route, body in bodies.items():
             html = page(v, route, titles[route], DESC_HOME, body)
             with open(os.path.join(base, route.lstrip('/'), 'index.html'), 'w') as f:
