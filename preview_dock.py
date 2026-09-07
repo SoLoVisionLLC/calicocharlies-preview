@@ -12,7 +12,7 @@ VARIANT_NAMES = {
     "b": ("B", "Candy Counter Energy"),
     "c": ("C", "Curated Nostalgia"),
 }
-ASSET_VERSION = "20260907-dock-v7-pill-slim"
+ASSET_VERSION = "20260907-dock-v8-typography"
 
 
 def route_path(slug):
@@ -33,7 +33,7 @@ def preview_dock(variant, slug):
         links.append(
             f'<a class="preview-design{active}" href="{domain}{route}"{current} '
             f'title="{label}" aria-label="{label}">'
-            f'<span class="preview-design-code" aria-hidden="true">{code}</span>'
+            f'<span class="preview-design-code" aria-hidden="true">{code}</span> '
             f'<strong>({escape(name)})</strong></a>'
         )
     return f'''<aside class="preview-dock" aria-label="Calico Charlie's preview comparison">
