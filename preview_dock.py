@@ -15,9 +15,15 @@ VARIANT_NAMES = {
 ASSET_VERSION = "20260907-dock-v7-pill-slim"
 
 
+def route_path(slug):
+    """Return one canonical trailing-slash path for a generated route slug."""
+    normalized = slug.strip("/") if slug else ""
+    return "/" if not normalized else f"/{normalized}/"
+
+
 def preview_dock(variant, slug):
     """Render the floating, route-preserving comparison pill."""
-    route = "/" if not slug else f"/{slug}/"
+    route = route_path(slug)
     links = []
     for key, domain in VARIANT_DOMAINS.items():
         code, name = VARIANT_NAMES[key]
