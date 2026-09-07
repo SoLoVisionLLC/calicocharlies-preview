@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Build Calico Charlie's Candy & More preview: variants A/B/C, static HTML, 5 routes each."""
 import os, shutil
+from preview_dock import ASSET_VERSION, preview_dock
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = '/tmp/cc/site'
+DEPLOY_ROOT = f'{ROOT}/variants'
 ROUTES = {
     '/': 'index.html',
     '/treats-gifts': 'treats-gifts/index.html',
@@ -46,7 +48,7 @@ HEAD = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family={fontq}&amp;display=swap" rel="stylesheet">
-<style>{css}</style>
+<link rel="stylesheet" href="/styles.css?v={ASSET_VERSION}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -104,7 +106,7 @@ def page(v, slug, title, desc, body):
                    'Fraunces&quot;,serif|Source Sans'),
              }
     return HEAD.format(title=title, desc=desc, css=css,
-                       fontq=FONTS[v]).replace('__NAV__', nav(slug)) + body + foot()
+                       fontq=FONTS[v], ASSET_VERSION=ASSET_VERSION).replace('__NAV__', nav(slug)) + body + preview_dock(v, slug) + foot()
 
 
 FONTS = {
@@ -328,6 +330,8 @@ def build():
     shutil.copytree(f'{ROOT}/assets', f'{SITE}/assets')
     for v in ('a', 'b', 'c'):
         base = f'{SITE}/{v}'
+        os.makedirs(base, exist_ok=True)
+        shutil.copyfile(f'{ROOT}/variants/{v}.css', f'{base}/styles.css')
         for route, fname in ROUTES.items():
             d = os.path.join(base, route.lstrip('/'))
             os.makedirs(d, exist_ok=True)
@@ -345,6 +349,23 @@ def build():
             html = page(v, route, titles[route], DESC_HOME, body)
             with open(os.path.join(base, route.lstrip('/'), 'index.html'), 'w') as f:
                 f.write(html)
+        # Keep the committed Docker build context in lockstep with the generated
+        # site. Each Coolify service copies its variant directory directly, so
+        # generating only /tmp/cc/site leaves production artifacts stale.
+        deploy = f'{DEPLOY_ROOT}/{v}'
+        for name in os.listdir(deploy):
+            path = os.path.join(deploy, name)
+            if os.path.isdir(path) and name != '.git':
+                shutil.rmtree(path)
+            elif name != 'Dockerfile':
+                os.remove(path)
+        for name in os.listdir(base):
+            source = os.path.join(base, name)
+            target = os.path.join(deploy, name)
+            if os.path.isdir(source):
+                shutil.copytree(source, target)
+            else:
+                shutil.copyfile(source, target)
     print('built', SITE)
 
 

@@ -12,3 +12,7 @@ Routes per variant: `/`, `/treats-gifts/`, `/our-story/`, `/whats-new/`, `/visit
 
 Build: `python3 build.py` renders static HTML into `/tmp/cc/site` (assets shared at site root).
 All routes are `noindex, nofollow`. All resources deploy from `main`.
+
+## Preview comparison pill
+
+Every generated page includes the shared A/B/C comparison pill. Links preserve the current route on each deployed sibling domain, and the active design uses `aria-current="page"`. The internal v7 pill is 34px high with 28px chips, dark charcoal (`#252525`) chrome, brand red (`#BC2026`) active chips, horizontal scrolling on narrow screens, visible keyboard focus, reduced-motion support, and 64px page clearance above the bottom safe area. Stylesheets are linked with `?v=20260907-dock-v7-pill-slim`; this preview has no approved alternate palette, so no palette control is rendered.
