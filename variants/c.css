@@ -105,3 +105,18 @@ figcaption{font-size:.85rem;color:#6f5b4d;margin-top:.6rem}
   .practical-card{transform:none;max-width:100%}
 }
 .collage-cta{padding:0 0 .8rem}
+
+/* Internal preview comparison pill. Client-facing controls retain their touch sizes. */
+body { padding-bottom: calc(64px + env(safe-area-inset-bottom)) !important; }
+.preview-dock { position:fixed; inset:auto auto calc(16px + env(safe-area-inset-bottom)) 50%; z-index:100; width:max-content; max-width:calc(100% - 2 * max(16px, env(safe-area-inset-left), env(safe-area-inset-right))); height:34px; margin:0; padding:0 8px; box-sizing:border-box; transform:translateX(-50%); border-radius:999px; background:#252525; color:#fff; box-shadow:0 6px 20px rgba(0,0,0,.24); font:600 12px/1.2 system-ui,sans-serif; }
+.preview-dock-scroll { display:flex; align-items:center; gap:8px; height:100%; padding:2px 4px; overflow-x:auto; scrollbar-width:none; white-space:nowrap; }
+.preview-dock-scroll::-webkit-scrollbar { display:none; }
+.preview-designs { display:flex; align-items:center; gap:2px; }
+.preview-group-label { display:inline-flex; align-items:center; margin-right:4px; color:#bdbdbd; font-size:10px; font-weight:700; letter-spacing:.06em; }
+.preview-design { display:inline-flex; align-items:center; justify-content:center; gap:4px; min-width:44px; min-height:28px; height:28px; padding:0 10px; box-sizing:border-box; border-radius:999px; color:#fff; text-decoration:none; white-space:nowrap; }
+.preview-design:hover { background:rgba(255,255,255,.12); color:#fff; }
+.preview-design.is-active { background:#BC2026; color:#fff; }
+.preview-design-code { font-weight:750; }
+.preview-design strong { font:inherit; }
+.preview-dock a:focus-visible { outline:2px solid #BC2026; outline-offset:-3px; }
+@media (prefers-reduced-motion: reduce) { .preview-dock-scroll { scroll-behavior:auto !important; } }
