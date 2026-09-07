@@ -5,6 +5,7 @@ from preview_dock import ASSET_VERSION, preview_dock
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = '/tmp/cc/site'
+DEPLOY_ROOT = f'{ROOT}/variants'
 ROUTES = {
     '/': 'index.html',
     '/treats-gifts': 'treats-gifts/index.html',
@@ -348,6 +349,23 @@ def build():
             html = page(v, route, titles[route], DESC_HOME, body)
             with open(os.path.join(base, route.lstrip('/'), 'index.html'), 'w') as f:
                 f.write(html)
+        # Keep the committed Docker build context in lockstep with the generated
+        # site. Each Coolify service copies its variant directory directly, so
+        # generating only /tmp/cc/site leaves production artifacts stale.
+        deploy = f'{DEPLOY_ROOT}/{v}'
+        for name in os.listdir(deploy):
+            path = os.path.join(deploy, name)
+            if os.path.isdir(path) and name != '.git':
+                shutil.rmtree(path)
+            elif name != 'Dockerfile':
+                os.remove(path)
+        for name in os.listdir(base):
+            source = os.path.join(base, name)
+            target = os.path.join(deploy, name)
+            if os.path.isdir(source):
+                shutil.copytree(source, target)
+            else:
+                shutil.copyfile(source, target)
     print('built', SITE)
 
 
